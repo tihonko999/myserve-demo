@@ -1,0 +1,64 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "jquery": true,
+    "es2022": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:vue-pug/vue3-recommended",
+    "plugin:cypress/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "vue/no-undef-properties": ["error", { "ignores": ["$route", "$router"] }],
+    "vue/no-undef-components": [
+      "error",
+      {
+        // explicitly list all global components
+        "ignorePatterns": ["^router-link$", "^router-view$"]
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "vue",
+            "importNames": ["defineProps", "defineEmits"],
+            "message": "'defineProps' and 'defineEmits' should't be imported, please see: https://vuejs.org/api/sfc-script-setup.html#defineprops-defineemits"
+          }
+        ],
+        "patterns": [
+          {
+            // '~/helpers/rails-routes', '../helpers/rails-routes.js', etc
+            "group": ["*rails-routes*"],
+            "importNames": ["DisallowedObject"],
+            "message": "Please use specific import from 'rails-routes' for tree-shaking"
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      // allow TEST_DATA global var in cypress tests
+      "files": ["spec/cypress/**/*.js"],
+      "globals": { "TEST_DATA": "readonly" }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [["~", "./app/javascript"]],
+        "extensions": [".js", ".vue"]
+      }
+    }
+  }
+}

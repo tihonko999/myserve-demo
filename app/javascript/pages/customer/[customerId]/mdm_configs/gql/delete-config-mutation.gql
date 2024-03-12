@@ -1,0 +1,9 @@
+mutation mdmConfigDelete($id: ID!) {
+  mdmConfigDelete(input: { id: $id }) {
+    clientMutationId
+    status
+    errors {
+      text
+    }
+  }
+}

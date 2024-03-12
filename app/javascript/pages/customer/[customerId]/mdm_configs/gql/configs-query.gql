@@ -1,0 +1,19 @@
+query MdmConfigs($customerId: ID!) {
+  customer(customerId: $customerId) {
+    id
+    mdmConfigs {
+      nodes {
+        id
+        mdmName
+        options
+        events(first: 1) {
+          nodes {
+            id
+            details
+            updatedAt
+          }
+        }
+      }
+    }
+  }
+}

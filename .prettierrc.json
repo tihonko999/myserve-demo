@@ -1,0 +1,9 @@
+{
+  "plugins": ["@prettier/plugin-pug"],
+  "singleQuote": true,
+  "semi": false,
+  "printWidth": 100,
+  "pugFramework": "vue",
+  "pugSingleQuote": false,
+  "pugAttributeSeparator": "none"
+}

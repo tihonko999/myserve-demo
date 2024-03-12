@@ -1,0 +1,15 @@
+{
+  "name": "Argon GraphQL Schema",
+  "schemaPath": "./db/schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "http://lvh.me:3000/graphql",
+        "headers": {
+          "dev-user": "iabdulin@simplexmobility.com"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

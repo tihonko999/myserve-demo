@@ -17,13 +17,12 @@
 - Prettier
 - Cypress
 
-### Установка / Запуск
+### Инициализация
 
 - yarn install
-- yarn serve
 
 ### Особенности
 
-- автогенерация маршрутов Vue Router при запуске: `config/generate-vue-routes-file.mjs`
+- автогенерация маршрутов Vue Router при запуске (yarn serve): `config/generate-vue-routes-file.mjs`
 - собстенные композитные функции для работы с GraphQL: `app/javascript/helpers/use-apollo.js`
 - типизация композитной функции useI18n: `app/javascript/helpers/use-i18n.d.ts`
